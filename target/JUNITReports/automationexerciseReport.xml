@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="17.718" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-25T02:26:01.750402700Z">
+<testcase classname="To register a new user" name="New User Registration - #1.1" time="17.477">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When User clicks on the Signup and Login Link...............................passed
+Then User is taken to the New User Signup or login page.....................passed
+When User enters name "CucumberTester"......................................passed
+When User enters email "CucumberTester@gmail.com"...........................passed
+And user clicks on Signup button............................................passed
+And User enters the following account Details...............................passed
+And User enters the following Address Details...............................passed
+Then User clicks on createAccount button....................................passed
+And User account created successfully.......................................passed
+]]></system-out>
+</testcase>
+</testsuite>

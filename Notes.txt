@@ -1,0 +1,43 @@
+While using TestNG
+Do not use @RunWith(Cucumber.class)
+and import import io.cucumber.testng.CucumberOptions; instead of import io.cucumber.junit.CucumberOptions;
+and extend the AbstractTestNGCucumberTests in the testrunner
+
+for Extent Report
+configure extent.properties,spark-config.xml,pdf-config.yaml 
+add a screenshot shot method on failure
+add plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" to the Testrunner
+
+
+
+
+
+
+| Hook Type       | Annotation    | Purpose                       |
+| --------------- | ------------- | ----------------------------- |
+| Before Hook     | `@Before`     | Runs **before each scenario** |
+| After Hook      | `@After`      | Runs **after each scenario**  |
+| BeforeStep Hook | `@BeforeStep` | Runs **before each step**     |
+| AfterStep Hook  | `@AfterStep`  | Runs **after each step**      |
+
+You can run hooks for specific tagged scenarios:
+@Before("@SmokeTest")
+
+Order of Execution
+@Before(order = 1)
+
+Lower order values run first in @Before
+
+Higher order values run first in @After
+
+Key Points to Remember
+✅ Use hooks only for setup/cleanup, not for test logic.
+✅ Keep hooks in a separate class (e.g., Hooks.java).
+🚫 Don't extend hook classes in step definitions — it leads to Cucumber errors.
+✅ You can access scenario info (like name, status) via Scenario object in hooks.
+✅ Use scenario.isFailed() to take screenshots or log errors on failure.
+🔄 Hooks run for each scenario by default, not once per feature file.
+✅ @BeforeStep and @AfterStep are helpful for logging or debugging at step level.
+🛠️ Cucumber hooks come from io.cucumber.java, not from older JUnit/TestNG annotations.
+--------------------------------------------------------------------------------------------------------------
+
